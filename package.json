@@ -1,0 +1,49 @@
+{
+  "name": "image-processing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.ts",
+    "build": "npx tsc",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oumao/image-processing.git"
+  },
+  "author": "oumao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oumao/image-processing/issues"
+  },
+  "homepage": "https://github.com/oumao/image-processing#readme",
+  "dependencies": {
+    "@types/express": "^4.17.15",
+    "@types/jasmine": "^4.3.1",
+    "@types/node": "^18.11.17",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/parser": "^5.46.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "express": "^4.18.2",
+    "jasmine": "^4.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.1",
+    "supertest": "^6.3.3",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "eslint-config-standard-with-typescript": "^24.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "typescript": "^4.9.4"
+  }
+}
