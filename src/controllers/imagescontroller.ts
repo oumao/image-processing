@@ -5,11 +5,15 @@ import imageResize from '../utils/imageResize'
 
 const convertImage = async (req: Request, res: Response): Promise<void> => {
   try {
+
+    // Caching the response until new data is supplied
+    res.set('Cache-control', 'private, must-revalidate')
+    
     // Destructuring request query
     const { name, height, width } = req.query
 
-    const imgHeight = parseInt(height as string) // height
-    const imgWidth = parseInt(width as string) // width
+    const imgHeight = parseInt(height as string) // height of the image
+    const imgWidth = parseInt(width as string) // width of the image
 
     // Extracting filenames available in public/images
     const checkFiles = await fsPromise.readdir(
