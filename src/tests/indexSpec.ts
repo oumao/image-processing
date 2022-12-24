@@ -14,7 +14,7 @@ describe('Image Resizing Route', () => {
       .query({ name: 'fjord', width: 200, height: 200 })
       .expect(200)
       .end((err: Error, res) => {
-        if (err) {
+        if (err != null) {
           return done.fail(err)
         }
       })
