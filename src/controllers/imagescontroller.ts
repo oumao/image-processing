@@ -50,13 +50,13 @@ const convertImage = async (req: Request, res: Response): Promise<void> => {
     }
 
     // validate the height and width
-    if (isNaN(imgWidth) && isNaN(imgHeight)) {
+    if (isNaN(imgWidth) || isNaN(imgHeight)) {
       res.status(400).send('The width and height must be a number')
     }
 
     // Check for image name
     if (!checkName) {
-      res.status(400).send('The Image name does not exist')
+      res.status(404).send('The Image name does not exist')
     }
 
     // Function to convert the size of the image
