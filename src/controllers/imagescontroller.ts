@@ -1,16 +1,13 @@
 import path from 'path'
-import { promises as fsPromise } from 'fs'
 import { Request, Response } from 'express'
 import imageResize from '../utils/imageResize'
 
-
 const convertImage = async (req: Request, res: Response): Promise<void> => {
   try {
-
     // Caching the response until new data is supplied
     res.set('Cache-control', 'private, must-revalidate')
-    
-    // // Destructuring request query
+
+    // Destructuring request query
     const { name, height, width } = req.query
 
     const imgHeight = parseInt(height as string) // height of the image
@@ -24,14 +21,13 @@ const convertImage = async (req: Request, res: Response): Promise<void> => {
       `${name as string}.jpg`
     )
 
-    // Destination path
+    // Destination path of resized image
     const finalPath: string = path.join(
       process.cwd(),
       'public',
       'thumb',
       `${name as string}_thumb.png`
     )
-
 
     // Function to convert the size of the image
     await imageResize(imagePath, imgWidth, imgHeight, finalPath)
