@@ -1,5 +1,5 @@
 # Welcome to Image-Processing API
-This is an `express` webapp that accepts the image file name and  then shrinks it to the the dimensions specified using `Sharp` Library
+This is an `express` webapp that accepts an image file name and  then shrinks it to the the dimensions specified using `Sharp` Library
 
 To get this application run locally:
 
