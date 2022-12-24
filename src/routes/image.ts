@@ -3,6 +3,7 @@ import convertImage from '../controllers/imagescontroller'
 
 const imageRoute: Router = express.Router()
 
-imageRoute.route('/images/:image').get(convertImage)
+// image route
+imageRoute.route('/images').get(convertImage)
 
 export { imageRoute }
