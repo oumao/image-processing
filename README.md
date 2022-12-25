@@ -4,7 +4,7 @@ This is an `express` webapp that accepts an image file name and  then shrinks it
 To get this application run locally:
 
 1. Clone this repository and `cd` into the application directory
-2. Run `npm install` to install all the dependencies
+2. Run `npm install --legacy-peer-deps` to install all the dependencies
 3. Run `npm run build` to build the project
 4. Run `npm start` to run the application which will be server by default on port 8000
 5. Run `npm run test` to run the test cases
