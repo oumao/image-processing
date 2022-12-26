@@ -22,12 +22,6 @@
   },
   "homepage": "https://github.com/oumao/image-processing#readme",
   "dependencies": {
-    "@types/express": "^4.17.15",
-    "@types/jasmine": "^4.3.1",
-    "@types/node": "^18.11.17",
-    "@types/sharp": "^0.31.0",
-    "@types/supertest": "^2.0.12",
-    "@typescript-eslint/parser": "^5.46.1",
     "dotenv": "^16.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -37,19 +31,24 @@
     "jasmine-spec-reporter": "^7.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
-    "prettier": "^2.8.1",
     "sharp": "^0.31.2",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/jasmine": "^4.3.1",
     "@types/morgan": "^1.9.3",
+    "@types/node": "^18.11.18",
+    "@types/sharp": "^0.31.0",
+    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.47.1",
     "eslint-config-standard-with-typescript": "^24.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1",
-    "image-size": "^1.0.2",
+    "prettier": "^2.8.1",
     "typescript": "^4.9.4"
   }
 }
