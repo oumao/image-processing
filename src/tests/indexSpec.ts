@@ -73,7 +73,7 @@ describe('Check Image Stats', () => {
       process.cwd(),
       'public',
       'thumb',
-      'fjord_thumb.png'
+      'santamonica_thumb.png'
     )
 
     // Use the fs.stat function to check the status of the file
@@ -93,7 +93,7 @@ describe('Check Image Stats', () => {
       process.cwd(),
       'public',
       'thumb',
-      'fjord_thumb.png'
+      'santamonica_thumb.png'
     )
 
     // getting dimensions of the file
