@@ -14,12 +14,14 @@ const validateImage = async (
   const imgWidth = parseInt(width as string) // width of the image
 
   // Extracting filenames available in public/images
-  const checkFiles = await fsPromise.readdir(
+  const checkUnprocessedFiles = await fsPromise.readdir(
     path.join(process.cwd(), 'public', 'images')
   )
 
   // Extracting filenames without extensions
-  const names: string[] = checkFiles.map((file) => path.basename(file, '.jpg'))
+  const names: string[] = checkUnprocessedFiles.map((file) =>
+    path.basename(file, '.jpg')
+  )
 
   // boolean to check if name exists in extracted image files available at the public/image
   const checkName: boolean = names.includes(name as string)
@@ -32,6 +34,16 @@ const validateImage = async (
   // validate the height and width
   if (isNaN(imgWidth) || isNaN(imgHeight)) {
     res.status(400).send('The width and height must be a number')
+  }
+
+  // validate negative height and width
+  if ((imgHeight || imgWidth) < 0) {
+    res.status(400).send('The width and height cannot be a negative number')
+  }
+
+  // Validate minimum height and width
+  if ((imgHeight || imgWidth) < 50) {
+    res.status(400).send('Image height or width cannot be less than 50')
   }
 
   // Check for image name
