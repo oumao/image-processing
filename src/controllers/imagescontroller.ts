@@ -27,7 +27,7 @@ const convertImage = async (req: Request, res: Response): Promise<void> => {
       process.cwd(),
       'public',
       'thumb',
-      `${name as string}_thumb.png`
+      `${name as string}_${imgWidth}X${imgHeight}_thumb.png`
     )
 
     // Extracting processed filenames for caching purposes
@@ -40,9 +40,10 @@ const convertImage = async (req: Request, res: Response): Promise<void> => {
     ) // Extracting processed files
 
     const results: string[] = resizedImages.filter((opts) =>
-      opts.startsWith(name as string)
+      opts.startsWith(`${name as string}_${imgWidth}X${imgHeight}_`)
     ) // check if name is already processed
 
+    // check if count is greater than one the render the image otherwise process it
     if (results.length > 0) {
       res.status(200).sendFile(finalPath)
     } else {
