@@ -24,7 +24,9 @@ describe('Image Resizing Route', () => {
   })
 
   it('Should resize image using sharp', (done) => {
-    const imgName = 'icelandwaterfall'
+    const imgName = 'santamonica'
+    const imgWidth = 200
+    const imgHeight = 200
     // Getting the path to images
     const imagePath: string = path.join(
       process.cwd(),
@@ -33,13 +35,13 @@ describe('Image Resizing Route', () => {
       `${imgName as string}.jpg`
     )
 
-    // Destination path of resized image
-    const finalPath: string = path.join(
-      process.cwd(),
-      'public',
-      'thumb',
-      `${imgName as string}_thumb.png`
-    )
+  // Destination path of resized image
+  const finalPath: string = path.join(
+    process.cwd(),
+    'public',
+    'thumb',
+    `${imgName as string}_${imgWidth}X${imgHeight}_thumb.png`
+  )
 
     imageResize(imagePath, 200, 200, finalPath)
 
@@ -73,7 +75,7 @@ describe('Check Image Stats', () => {
       process.cwd(),
       'public',
       'thumb',
-      'santamonica_thumb.png'
+      'santamonica_200X200_thumb.png'
     )
 
     // Use the fs.stat function to check the status of the file
@@ -93,7 +95,7 @@ describe('Check Image Stats', () => {
       process.cwd(),
       'public',
       'thumb',
-      'santamonica_thumb.png'
+      'santamonica_200X150_thumb.png'
     )
 
     // getting dimensions of the file
@@ -101,7 +103,7 @@ describe('Check Image Stats', () => {
 
     // If both width and height meets final dimensions
     expect(dimensions.width).toEqual(200)
-    expect(dimensions.height).toBe(200)
+    expect(dimensions.height).toBe(150)
   })
 
   it('Should check if file is greater than or equal to 50', () => {
@@ -110,7 +112,7 @@ describe('Check Image Stats', () => {
       process.cwd(),
       'public',
       'thumb',
-      'palmtunnel_thumb.png'
+      'palmtunnel_200X200_thumb.png'
     )
 
     // getting dimensions of the file
