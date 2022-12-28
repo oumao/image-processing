@@ -24,7 +24,7 @@ describe('Image Resizing Route', () => {
   })
 
   it('Should resize image using sharp', (done) => {
-    const imgName = 'fjord'
+    const imgName = 'icelandwaterfall'
     // Getting the path to images
     const imagePath: string = path.join(
       process.cwd(),
