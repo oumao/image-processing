@@ -1,4 +1,5 @@
 import path from 'path'
+import { promises as fsPromise } from 'fs'
 import { Request, Response } from 'express'
 import imageResize from '../utils/imageResize'
 
@@ -29,10 +30,27 @@ const convertImage = async (req: Request, res: Response): Promise<void> => {
       `${name as string}_thumb.png`
     )
 
-    // Function to convert the size of the image
-    await imageResize(imagePath, imgWidth, imgHeight, finalPath)
+    // Extracting processed filenames for caching purposes
+    const checkProcessedFiles = await fsPromise.readdir(
+      path.join(process.cwd(), 'public', 'thumb')
+    )
 
-    res.status(200).sendFile(finalPath)
+    const resizedImages: string[] = checkProcessedFiles.map((file) =>
+      path.basename(file, '.png')
+    ) // Extracting processed files
+
+    const results: string[] = resizedImages.filter((opts) =>
+      opts.startsWith(name as string)
+    ) // check if name is already processed
+
+    if (results.length > 0) {
+      res.status(200).sendFile(finalPath)
+    } else {
+      // Function to convert the size of the image
+      await imageResize(imagePath, imgWidth, imgHeight, finalPath)
+
+      res.status(200).sendFile(finalPath)
+    }
   } catch (error) {
     // console.log(error)
   }
