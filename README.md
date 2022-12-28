@@ -12,10 +12,10 @@ To get this application run locally:
 # Endpoints
 | Method | Endpoint | Description | Response |
 --- | --- | --- | --- | 
-GET | /api/images?filename=fjord&width=200&height=200 | Resizing image Endpoint | 200 OK
-GET | /api/images?filename=&width=&height= | Missing Params in query string | 400 Bad Request
-GET | /api/images?filename=fjord&width=p50&height=g400 | Invalid dimensions | 400 Bad Request
-GET | /api/images?filename=invalidName&width=200&height=200 | Name doesnt exist | 404 Not Found 
+GET | /api/images?name=fjord&width=200&height=200 | Resizing image Endpoint | 200 OK
+GET | /api/images?name=&width=&height= | Missing Params in query string | 400 Bad Request
+GET | /api/images?name=fjord&width=p50&height=g400 | Invalid dimensions | 400 Bad Request
+GET | /api/images?name=invalidName&width=200&height=200 | Name doesnt exist | 404 Not Found 
 
 # Libraries
 - [ExpressJS](https://github.com/expressjs/express) - Web app framework
