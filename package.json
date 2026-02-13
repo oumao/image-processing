@@ -23,7 +23,7 @@
   "homepage": "https://github.com/oumao/image-processing#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.21.1",
+    "express": "^4.22.0",
     "morgan": "^1.10.0",
     "sharp": "^0.33.0"
   },
